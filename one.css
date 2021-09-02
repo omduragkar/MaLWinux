@@ -1,0 +1,54 @@
+.container-fluid
+{
+    background-color: black;
+    color: white;
+}
+form
+{
+    display: inline-block;
+    width: 70%;
+}
+li
+{
+    list-style: none;
+    display: inline-block;
+    padding: 3% 1%;
+    /* color: white; */
+}
+a{
+    border-style: none;
+    color: aliceblue;
+}
+a:hover
+{
+    color: brown;
+}
+input
+{
+    display: inline-block;
+    /* margin-left: 2%; */
+}
+.btn
+{
+    color: aliceblue;
+    margin-left: 1%;
+    
+}
+.input
+{
+    padding: 0.4%;
+    border-radius: 10px;
+    border: 1px solid white;
+    color:aliceblue;
+    /* border: none; */
+    background-color: black;
+}
+.fasu
+{
+    /* margin-top: 1%; */
+    padding: 1%;
+    padding-top: 10px;
+    /* margin-left: 1%; */
+    font-size: 50px;
+    display: inline-block;
+}
