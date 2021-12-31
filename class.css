@@ -1,0 +1,111 @@
+#maindiv{
+    border: 1px solid rgb(34, 34, 34);
+    height: 40rem;
+    /* width: 300px; */
+    margin-top: 15px;
+    border-radius: 5px;
+    padding: 2px;
+    background-image: url("https://images.unsplash.com/photo-1620121692029-d088224ddc74?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80");
+}
+#divusage{
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    justify-items: flex-start;
+    /* justify-content: space-around; */
+}
+#addbtn{
+    
+    display: flex;   
+    flex-direction: row;
+    padding: 2px;
+    margin: auto;
+    justify-content: center; 
+    align-items: center;
+    background-color: aliceblue;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 5px;
+}
+#addbtn:hover{
+    
+    background-color: rgb(207, 232, 253);
+    border: 3px solid rgb(47, 75, 201);
+    
+}
+.folder{
+    /* border: 1px solid rgb(170, 170, 170); */
+    /* height: 50px; */
+    height: 150px;
+    width: 100px;
+    text-align: center;
+    padding: 5px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    cursor: pointer;
+}
+.file{
+    /* border: 1px solid rgb(170, 170, 170); */
+    /* height: 50px; */
+    height: 150px;
+    width: 100px;
+    text-align: center;
+    padding: 5px;
+    cursor: pointer;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.folder:hover{
+    /* background-color: rgb(84, 135, 245); */
+    background-color: rgba(216, 215, 215, 0.356);
+    border-radius: 5px;
+}
+.file:hover{
+    /* background-color: rgb(84, 135, 245); */
+    background-color: rgb(201, 200, 200);
+    border-radius: 5px;
+}
+
+.folder [action="delete"]{
+    text-decoration: underline;
+    cursor: pointer;
+    color: rgb(216, 64, 64);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.folder [action="delete"]:hover{
+    text-decoration: underline;
+    cursor: pointer;
+    font-weight: bold;
+    color: rgb(240, 80, 80);
+}
+.folder [action="edit"]{
+    text-decoration: underline;
+    cursor: pointer;
+    color: rgb(31, 126, 182);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.folder [action="edit"]:hover{
+    text-decoration: underline;
+    cursor: pointer;
+    font-weight: bold;
+    color: rgb(32, 153, 223);
+}
+.file [action="delete"]{
+    text-decoration: underline;
+    cursor: pointer;
+    color: rgb(216, 64, 64);
+}
+.file [action="edit"]{
+    text-decoration: underline;
+    cursor: pointer;
+    color: rgb(31, 126, 182);
+}
+.fname{
+    color: aliceblue;
+    word-wrap: break-word;
+}
+
+#maindiv{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: space-between;
+}
