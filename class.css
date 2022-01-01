@@ -1,18 +1,46 @@
 #maindiv{
     border: 1px solid rgb(34, 34, 34);
     height: 40rem;
-    /* width: 300px; */
     margin-top: 15px;
     border-radius: 5px;
     padding: 2px;
-    background-image: url("https://images.unsplash.com/photo-1620121692029-d088224ddc74?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80");
+    /* display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; */
+    background-image: url("./images/home.jpg");
+    background-repeat: no-repeat;
+    background-position:center;
 }
-#divusage{
+#foldercontainer{
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+}
+/* TOPBAR:  */
+.topbar{
+    display: flex;
+    background-color: rgba(216, 216, 216, 0.473);
+    padding: 5px;
+    border-radius: 5px;
+}
+#divusage{
+    /* display: inline-block; */
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 34%;
+    /* margin: auto; */
+    /* text-align: center; */
+}
+#divusage2{
+    width: 30%;
     margin: auto;
-    justify-items: flex-start;
-    /* justify-content: space-around; */
+    text-align: center;
+
+}
+.signsec{
+    width: 49%;
+    text-align: end;
 }
 #addbtn{
     
@@ -23,9 +51,9 @@
     justify-content: center; 
     align-items: center;
     background-color: aliceblue;
-    border: 1px solid gray;
+    border: 3px solid rgb(236, 235, 235);
     border-radius: 5px;
-    padding: 5px;
+    padding: 3px;
 }
 #addbtn:hover{
     
@@ -103,9 +131,19 @@
     word-wrap: break-word;
 }
 
-#maindiv{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-content: space-between;
+.signbutton{
+    color: white;
+    background-color: rgba(43, 43, 43, 0.918);
+    border: 3px solid rgba(43,43,43,0.918);
+    border-radius: 5px;
+    padding: 6px;
+    font-size: medium;
+    
 }
+
+.signbutton:hover{
+    background-color: rgba(43, 43, 43, 0.089);
+    border: 3px solid rgba(59, 121, 255, 0.918);
+}
+
+
