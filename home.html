@@ -8,8 +8,15 @@
     <link rel="stylesheet" href="class.css">
 </head>
 <body>
-    <span style="text-align: center; font-family:'Courier New', Courier, monospace; font-weight: bolder; background-color: rgb(64, 124, 255); padding: 5px; font-size: x-large;">MaLWinux</span>
-    
+    <div id="headt">
+        <span style="text-align: center; font-family:'Courier New', Courier, monospace; font-weight: bolder; background-color: rgb(64, 124, 255); padding: 5px; font-size: x-large;">MaLWinux</span>
+        <div id="divusage2">
+        </div>
+        <div class="signsec">
+            <button class="signbutton">Signin </button>
+            <button class="signbutton">register </button>
+        </div>
+    </div>
     <div id="maindiv">
         <div style="height:50px; width: 100%;">
             <div class = "topbar">
@@ -18,19 +25,10 @@
                         <i class="fas fa-plus"></i> &nbsp;
                         <i class="far fa-folder"></i>
                     </button>
-                    <button id="addbtn">
+                    <button id="addbtnfile">
                         <i class="fas fa-plus"></i> &nbsp;
                         <i class="far fa-file"></i>
                     </button>
-                </div>
-                <div id="divusage2">
-                    <button id="addbtn">
-                        breadcrumbs
-                    </button>
-                </div>
-                <div class="signsec">
-                    <button class="signbutton">Signin  </button>
-                    <button class="signbutton">register </button>
                 </div>
             </div>
         </div>
@@ -40,21 +38,23 @@
     </div>
     <template id="mytemplate">
         <div class="folder">
-            <span action="edit">edit</span>
-            <span action="delete">delete</span>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/5/59/OneDrive_Folder_Icon.svg">
+            <span action="edit"><i class="fas fa-edit"></i></span>
+            <span action="delete"><i class="fas fa-folder-minus"></i></span>
+            <span action=view><img src="https://upload.wikimedia.org/wikipedia/commons/5/59/OneDrive_Folder_Icon.svg"></span>
             <div class="fname"></div>
         </div>
         <div class="file">
             <span action="edit">edit</span>
             <span action="delete">delete</span>
+            <span action="view">View</span>
             <img src="https://www.logicnavigator.com/uploads/8/3/2/7/83271518/fileimage_1.png?111">
             <div class="fname"></div>
         </div>
+        <a class="breadcrumstop"></a>
     </template>
     <script src="https://kit.fontawesome.com/a389f9a811.js" crossorigin="anonymous"></script>
     <script type="text/javascript"
-     src="main.js">
+     src="firstjs.js">
     </script>
 </body>
 </html>
