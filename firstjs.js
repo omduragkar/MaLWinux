@@ -114,18 +114,22 @@ let bread= [{fname:"Home", cid:-1}];
 
     function deletefolderName(){
         let parentDiv = this.parentNode;
-        if(confirm(`Are you sure You wanna delete ${parentDiv.querySelector('.fname').innerHTML}?`)){
+        if(confirm(`Are you sure You wanna delete ${parentDiv.querySelector('.fname').innerHTML} and it's subsequent folders?`)){
             let fidn = parentDiv.getAttribute('fid');
-            totalfolder = totalfolder.filter(v=>{
-                if(v.fid == fidn && v.cid == cf){
-                    return false;
-                }else{
-                    return true;
-                }
-            })
+            deletehelper(fidn);
+            
             savetols();
             showfoldertohtml();
         }
+    }
+
+    function deletehelper(cifdx){
+        x = totalfolder.filter(v=>v.cid == cifdx);
+        x.forEach(v=>{
+            deletehelper(v.fid);
+        })
+        let given  = totalfolder.findIndex(v=>v.fid == cifdx);
+        totalfolder.splice(given,1);
     }
     function editfolderName(e){
         let parentDiv = e.target.parentNode.parentNode;
