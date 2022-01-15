@@ -114,6 +114,7 @@
     /* background-color: rgb(84, 135, 245); */
     background-color: rgba(216, 215, 215, 0.356);
     border-radius: 5px;
+    height:fit-content;
 }
 .file:hover{
     /* background-color: rgb(84, 135, 245); */
@@ -158,6 +159,7 @@
 .fname{
     color: aliceblue;
     word-wrap: break-word;
+    margin-top: -20px;
 }
 
 .signbutton{
@@ -182,9 +184,10 @@
 }
 
 
-span[action="view"]{
+.folder [action="view"]{
     text-decoration: underline;
     color: rgb(255, 255, 255);
     font-size: large;
     font-weight: bold;
+    margin-bottom: 0;
 }
