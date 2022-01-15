@@ -3,6 +3,17 @@ let fid = 0;
 let totalfolder = [];
 let bread= [{fname:"Home", cid:-1}];
 (function (){
+
+    let hometap = document.querySelector(".mainonehome");
+    hometap.addEventListener('click', function(){
+        if(confirm("Do you want to start afresh?")){
+
+            localStorage.clear();
+            retrievefromls();
+            showfoldertohtml();
+            showbread(); 
+        }
+    })
     let addfolderbtn = document.querySelector('#addbtn')
     function settingbread(e){
         let x = e.target.getAttribute("cid");
@@ -36,36 +47,84 @@ let bread= [{fname:"Home", cid:-1}];
             }
         }
     }
+    
+    
     function addfoldertoarray(name, fid, cid){
-        totalfolder.push({name, fid, cid});
+        totalfolder.push({name, fid, cid, type:"folder"});
         console.log(totalfolder);
         savetols();
         showfoldertohtml();
     }
+    let addfilebtn = document.querySelector('#addbtnfile')
+    addfilebtn.addEventListener('click',e=>{addfile(e)});
+    function addfile(e){
+        e.preventDefault();
+        let fileName = prompt("Enter file's name: ");
+        if(!fileName){
+            alert('Enter a valid Name');
+        }
+        else{
 
+            fileName = fileName.trim();
+            folderin = totalfolder.some(v=>v.name === fileName && v.cid == cf);
+            if(folderin){
+                alert(`${fileName} is already taken!`);
+                
+            }
+            else{
+                fid++;
+                addfiletoarray(fileName, fid, cf);
+            }
+        }
+    }
+    
+    function addfiletoarray(name, fid, cid){
+        totalfolder.push({name, fid, cid, type:"text_file"});
+        savetols();
+        showfoldertohtml();
+    }
     function showfoldertohtml(){
        let maindiv = document.querySelector('#foldercontainer');
        maindiv.innerHTML ="";
        if(totalfolder.length>0){
             totalfolder.map(v=>{
                 if(v.cid == cf){
+                    if(v.type == "folder"){
+                        let template =  document.querySelector('#mytemplate');
+                        
+                        let folderCopy = template.content.querySelector('.folder');
+                        
+                        let origfolder = document.importNode(folderCopy, true);
+                        
+                        origfolder.setAttribute('fid', v.fid);
+                        let fo = origfolder.querySelector('.fname');
+                        let folderedit = origfolder.querySelector('[action = "edit"]');
+                        folderedit.addEventListener('click', e=>{editfolderName(e)});
+                        let folderdelete = origfolder.querySelector('[action = "delete"]');
+                        folderdelete.addEventListener('click', deletefolderName);
+                        let folderview = origfolder.querySelector('[action = "view"]');
+                        folderview.addEventListener('click', viewfolderName);
+                        fo.innerHTML = v.name;
+                        maindiv.appendChild(origfolder);
+                    }
+                    else{
+                        let template =  document.querySelector('#mytemplate');
+                        
+                        let filecopy = template.content.querySelector('.file');
+                        
+                        let origfolder = document.importNode(filecopy, true);
+                        origfolder.setAttribute('fid', v.fid);
+                        let fo = origfolder.querySelector('.finame');
+                        let folderedit = origfolder.querySelector('[action = "edit"]');
+                        folderedit.addEventListener('click', e=>{editfolderName(e)});
+                        let folderdelete = origfolder.querySelector('[action = "delete"]');
+                        folderdelete.addEventListener('click', deletefolderName);
+                        let folderview = origfolder.querySelector('[action = "view"]');
+                        folderview.addEventListener('click', viewfolderName);
+                        fo.innerHTML = v.name;
+                        maindiv.appendChild(origfolder);
 
-                    let template =  document.querySelector('#mytemplate');
-                    
-                    let folderCopy = template.content.querySelector('.folder');
-                    
-                    let origfolder = document.importNode(folderCopy, true);
-                    
-                    origfolder.setAttribute('fid', v.fid);
-                    let fo = origfolder.querySelector('.fname');
-                    let folderedit = origfolder.querySelector('[action = "edit"]');
-                    folderedit.addEventListener('click', e=>{editfolderName(e)});
-                    let folderdelete = origfolder.querySelector('[action = "delete"]');
-                    folderdelete.addEventListener('click', deletefolderName);
-                    let folderview = origfolder.querySelector('[action = "view"]');
-                    folderview.addEventListener('click', viewfolderName);
-                    fo.innerHTML = v.name;
-                    maindiv.appendChild(origfolder);
+                    }
                 }
             });
         }   

@@ -110,6 +110,9 @@
     cursor: pointer;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+.mainonehome{
+    cursor: pointer;
+}
 .folder:hover{
     /* background-color: rgb(84, 135, 245); */
     background-color: rgba(216, 215, 215, 0.356);
