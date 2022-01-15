@@ -164,6 +164,11 @@
     word-wrap: break-word;
     margin-top: -20px;
 }
+.finame{
+    color: aliceblue;
+    word-wrap: break-word;
+    margin-top: -10px;
+}
 
 .signbutton{
     color: white;
