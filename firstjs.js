@@ -1,6 +1,7 @@
 let cf = -1;
 let fid = 0;
 let totalfolder = [];
+let maindiv = 0;
 let bread= [{fname:"Home", cid:-1}];
 (function (){
 
@@ -116,11 +117,11 @@ let bread= [{fname:"Home", cid:-1}];
                         origfolder.setAttribute('fid', v.fid);
                         let fo = origfolder.querySelector('.finame');
                         let folderedit = origfolder.querySelector('[action = "edit"]');
-                        folderedit.addEventListener('click', e=>{editfolderName(e)});
+                        folderedit.addEventListener('click', e=>{renametextfile(e)});
                         let folderdelete = origfolder.querySelector('[action = "delete"]');
-                        folderdelete.addEventListener('click', deletefolderName);
+                        folderdelete.addEventListener('click', delfile);
                         let folderview = origfolder.querySelector('[action = "view"]');
-                        folderview.addEventListener('click', viewfolderName);
+                        folderview.addEventListener('click', viewfilename);
                         fo.innerHTML = v.name;
                         maindiv.appendChild(origfolder);
 
@@ -128,6 +129,63 @@ let bread= [{fname:"Home", cid:-1}];
                 }
             });
         }   
+    }
+    function viewfilename(){
+        let parentDiv = this.parentNode;
+        let maindivm = document.querySelector('#maindiv');
+        maindiv = document.importNode(maindivm, true);
+        let area = document.querySelector('#mytemplate');
+        area = area.content.querySelector('.fileview');
+        let farea= document.importNode(area, true);
+        console.log(farea);
+        maindivm.innerHTML=farea;
+
+    }
+
+    function renametextfile(e){
+        let fidx = e.target.parentNode.parentNode.getAttribute('fid')
+        let nname = prompt('Enter a new Name: ');
+        if(nname){
+            x = totalfolder.findIndex(v=>v.name == nname && v.cid == cf);
+            console.log(x);
+            if(x != -1){
+                alert('Name already taken')
+            }
+            else{
+                totalfolder = totalfolder.map(v=>{
+                    if(v.fid == fidx && v.cid == cf){
+                        v.name = nname;
+                    }
+                    return v;
+                });
+                savetols();
+                showfoldertohtml();
+            }
+        }
+        else{
+            alert('Invalid name')
+        }
+    }
+    
+    function delfile(){
+        let fidx = (this.parentNode.getAttribute('fid'));
+        if(confirm('Sure wanna delete ?')){
+            
+            totalfolder = totalfolder.filter(v=>{
+                if(v.fid == fidx && v.cid == cf){
+                    return false;
+                }
+                else{
+                    return true;
+                }
+            });
+            savetols();
+            showfoldertohtml();
+        }
+        else{
+            alert('Invalid name')
+        }
+
     }
 
     function viewfolderName(){

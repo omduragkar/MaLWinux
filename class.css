@@ -44,8 +44,9 @@
 .breadcrumstop:hover{
     text-decoration: underline !important;
     color: rgba(0, 27, 102, 0.952);
-    font-size: larger !important;
-    font-weight: bold !important;
+    transform: scale(2) !important;
+    /* font-size: larger !important;
+    font-weight: bold !important; */
 }
 #headt{
     display: flex;
@@ -133,7 +134,7 @@
     margin-left: 10px;
 }
 .folder [action="delete"]:hover{
-    scale: calc(1.3);
+    transform : scale(2);
     cursor: pointer;
     color: rgb(240, 80, 80);
 }
